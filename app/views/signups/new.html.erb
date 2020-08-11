@@ -1,0 +1,25 @@
+<h1>SignUp for an Activiy!</h1>
+
+<%= form_for @signup do |f| %>
+  <% if @signup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@signup.errors.count, "error") %> prohibited this signup from being saved:</h2>
+      <ul>
+      <% @signup.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label "Activity:"%>
+  <%= f.collection_select :activity_id, @activities, :id, :name %>
+  <br><br>
+  <%= f.label "Camper:"%>
+  <%= f.collection_select :camper_id, @campers, :id, :name %>
+  <br><br>
+  <%= f.label "Time:" %>
+  <%= f.number_field :time %>
+  <br><br>
+  <%= f.submit %>
+<% end %>

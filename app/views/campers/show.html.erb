@@ -1,0 +1,9 @@
+<h1><%= @camper.name %></h1>
+<h3>Age: <%= @camper.age %></h3>
+<hr>
+<h2>Activities:</h2>
+<ul>
+  <% @camper.signups.each do |item| %>
+    <li><%= item.activity.name %> - Time: <%= item.time %></li>
+  <% end %>
+</ul>
